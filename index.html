@@ -7,10 +7,11 @@
     <title>CarMarketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/jQuerySPApp.css">
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="header">
 
         <div id="menu-btn" class="fas fa-bars"></div>
 
@@ -29,13 +30,17 @@
             <i class="far fa-user"></i>
         </div>
     </header>
+
+    <main id="jqueryspapp" role="main">
+        <section id="home" data-load="home.html"></section>
+        <section id="veichles" data-load="veichles.html"></section>
+        <section id="services" data-load="services.html"></section>
+    </main>
     
-    <!-- header section ends -->
-
-    <!-- login form -->
+     <!-- login form -->
 
 
-    <div class="login-form-container">
+     <div class="login-form-container">
 
         <span class="fas fa-times" id="close-login-form"></span>
         
@@ -55,16 +60,6 @@
         
     </div>
 
-    <!-- home section starts -->
-
-    <section class="home" id="home">
-
-        <h1 class="home-parralax" data-speed="-2">find your car</h1>
-        <img class="home-parralax" data-speed="5" src="image/1_0.webp" alt="">
-        <a href="#" class="btn home-parralax" data-speed="7"> explore cars </a>
-
-
-    </section>
 
     <!-- home section ends -->
 
@@ -108,79 +103,6 @@
 
     <!-- icons section ends -->
     
-
-    <!-- vehicles section starts -->
-
-    <section class="vehicle" id="veichles">
-
-        <h1 class="heading">popular <span>veichles</span></h1>
-    
-        <div class="vehicle-slider" id="cars-list-ajax">
-    
-    
-        </div>
-    
-    </section>
-    
-
-
-    <!-- vehicle section ends -->
-
-    <!-- services section starts -->
-
-    <section class="services" id="services">
-
-        <h1 class="heading"> our <span>services</span></h1>
-        
-        <div class="box-container">
-            
-            <div class="box">
-                <i class="fas fa-car"></i>
-                <h3>car selling</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, eraum?</p>
-                <a href="#" class="btn">read moree</a>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-tools"></i>
-                <h3>parts repair</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, eraum?</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-car-crash"></i>
-                <h3>car insurance</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, eraum?</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-car-battery"></i>
-                <h3>battery replacement</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, eraum?</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-gas-pump"></i>
-                <h3>oil change</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, eraum?</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-headset"></i>
-                <h3>24/7 support</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, eraum?</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- services section ends -->
 
     <!-- review section starts-->
 
@@ -248,48 +170,23 @@
 
     <script>
 
-    $(document).ready(function() {
-        $.ajax({
-            url: 'data.json',
-            dataType: 'json',
-            success: function(data) {
-                displayCars(data);
-            },
-            error: function(xhr, status, error) {
-                console.error('Error fetching JSON:', status, error);
-            }
+        $(document).ready(function() {
+            $('#login-btn').click(function() {
+                $('#header').addClass('hidden-header');
+            });
         });
 
-        function displayCars(cars) {
-            var carsList = $('#cars-list-ajax');
-            cars.forEach(function(car) {
-                var carHtml = `
-                <div class="wrapper">
-                    <div class="box">
-                        <img src="${car.picture}" alt="${car.name}">
-                        <div class="content">
-                            <h3>${car.name}</h3>
-                            <div class="price"> <span>price: </span>$${car.price} </div>
-                            <p>
-                                <span class="fas fa-circle"></span> ${car.year}
-                                <span class="fas fa-circle"></span> ${car.gearbox_type}
-                                <span class="fas fa-circle"></span> ${car.horsepower}
-                            </p>
-                            <a href="#" class="btn">check out</a>
-                        </div>
-                    </div>
-                </div>
-                `;
-                carsList.append(carHtml);
-            });
-        }
-    });
+        $('#close-login-form').click(function() {
+            $('#header').removeClass('hidden-header');
+        });
+
 
     </script>
 
+    
     <script>
 
-$(document).ready(function() {
+    $(document).ready(function() {
         $.ajax({
             url: 'review.json',
             dataType: 'json',
@@ -322,5 +219,21 @@ $(document).ready(function() {
     });
 
     </script>
+
+<script src="js/JQuerySPApp.js"></script>
+
+<script type="text/javascript">
+    
+      $(document).ready(function(){
+        var app = $.jQuerySPApp({defaultView : "home"});
+    
+    
+        //define routes
+    
+        app.run();
+    
+      })
+    
+</script>
 </body>
 </html>

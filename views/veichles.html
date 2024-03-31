@@ -1,0 +1,55 @@
+<!-- vehicles section starts -->
+
+<section class="vehicle" id="veichles">
+
+    <h1 class="heading">popular <span>veichles</span></h1>
+
+    <div class="vehicle-slider" id="cars-list-ajax">
+
+
+    </div>
+
+</section>
+
+<script>
+
+    $(document).ready(function() {
+        $.ajax({
+            url: 'data.json',
+            dataType: 'json',
+            success: function(data) {
+                displayCars(data);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON:', status, error);
+            }
+        });
+
+        function displayCars(cars) {
+            var carsList = $('#cars-list-ajax');
+            cars.forEach(function(car) {
+                var carHtml = `
+                <div class="wrapper">
+                    <div class="box">
+                        <img src="${car.picture}" alt="${car.name}">
+                        <div class="content">
+                            <h3>${car.name}</h3>
+                            <div class="price"> <span>price: </span>$${car.price} </div>
+                            <p>
+                                <span class="fas fa-circle"></span> ${car.year}
+                                <span class="fas fa-circle"></span> ${car.gearbox_type}
+                                <span class="fas fa-circle"></span> ${car.horsepower}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                `;
+                carsList.append(carHtml);
+            });
+        }
+    });
+
+    </script>
+
+
+<!-- vehicle section ends -->

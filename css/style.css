@@ -58,6 +58,7 @@ section{
 .btn{
     display: inline-block;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: .5rem;
     background: var(--light-yellow);
     color:var(--black);
@@ -126,6 +127,35 @@ section{
 .header.active{
     box-shadow: var(--box-shadow);
     padding: 2rem 9%;
+}
+
+.car {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.car img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.details {
+    padding: 20px;
+}
+
+.details h2 {
+    margin-top: 0;
+}
+
+.details p {
+    margin: 5px 0;
+}
+
+.details p span {
+    font-weight: bold;
 }
 
 .login-form-container{
@@ -203,13 +233,21 @@ section{
 
 }
 
-.login-form-container #close-login-form{
+.login-form-container #close-login-form {
     position: absolute;
-    top: 1.5rem; right:2.5rem;
+    top: 1.5rem;
+    right: 2.5rem;
     font-size: 5rem;
-    color:var(--black);
+    color: var(--black);
     cursor: pointer;
+    z-index: 9999; 
+    visibility: visible; 
 }
+
+.hidden-header {
+    display: none;
+}
+
 
 .home{
     padding-top: 10rem;
@@ -311,14 +349,20 @@ section{
     padding-bottom: 5rem;
 }
 
+.vehicle-slider {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
 .vehicle-slider .wrapper {
-    display: inline-block;
-    margin-right: 1rem; /* Adjust margin as needed */
+    margin: 0 1rem; 
+    width: calc(33.33% - 2rem);
 }
 
 .vehicle .vehicle-slider .box {
     text-align: center;
-    width: 30rem;
+    width: 100%; 
 }
 
 .vehicle .vehicle-slider .box img {
@@ -360,7 +404,6 @@ section{
     font-size: 0.8rem;
     padding: 0 0.5rem;
 }
-
 
 .services .box-container{
     display: grid;
