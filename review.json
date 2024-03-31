@@ -1,0 +1,20 @@
+[
+    {
+      "picture": "image/male.jpg",
+      "name": "Andrija",
+      "review": "Great car, highly recommended!",
+      "rating": 4
+    },
+    {
+      "picture": "image/girl.jpg",
+      "name": "Sabrina",
+      "review": "Good performance but could be better on fuel efficiency.",
+      "rating": 3.5
+    },
+    {
+      "picture": "image/male2.jpg",
+      "name": "Bruno",
+      "review": "Comfortable ride and stylish design.",
+      "rating": 5
+    }
+  ]
