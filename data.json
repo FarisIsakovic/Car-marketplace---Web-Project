@@ -1,0 +1,57 @@
+[
+    {
+      "id":1,
+      "picture": "image/Golf7r.jpg",
+      "name": "VW Golf 7 R",
+      "year": 2019,
+      "price": 25000,
+      "horsepower": 340,
+      "gearbox_type": "Automatic"
+    },
+    {
+      "id":2,
+      "picture": "image/BMW.jpg",
+      "name": "BMW F30",
+      "year": 2021,
+      "price": 70000,
+      "horsepower": 240,
+      "gearbox_type": "Automatic"
+    },
+    {
+      "id":3,
+      "picture": "image/Peugeot408.jpg",
+      "name": "Peugeot 408",
+      "year": 2024,
+      "price": 35000,
+      "horsepower": 150,
+      "gearbox_type": "Automatic"
+    },
+    {
+      "id":4,
+      "picture": "image/A3.jpg",
+      "name": "Audi A3",
+      "year": 2018,
+      "price": 20000,
+      "horsepower": 150,
+      "gearbox_type": "manual"
+    },
+    {
+      "id":5,
+      "picture": "image/Fabia.jpg",
+      "name": "FABIA",
+      "year": 2012,
+      "price": 900000,
+      "horsepower": 45,
+      "gearbox_type": "manual"
+    },
+    {
+        "id":6,
+        "picture": "image/CokoBananica.jpg",
+        "name": "Micra",
+        "year": 2004,
+        "price": 1000,
+        "horsepower": 85,
+        "gearbox_type": "manual"
+    }
+
+  ]
