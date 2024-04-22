@@ -13,7 +13,7 @@
 
 <script>
 
-    $(document).ready(function() {
+   /* $(document).ready(function() {
         $.ajax({
             url: 'data.json',
             dataType: 'json',
@@ -47,9 +47,54 @@
                 carsList.append(carHtml);
             });
         }
-    });
+    }); */
 
     </script>
+
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: 'rest/products',
+            dataType: 'json',
+            success: function(data) {
+                displayCars(data);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON:', status, error);
+            }
+        });
+
+        function displayCars(cars) {
+            var carsList = $('#cars-list-ajax');
+            cars.forEach(function(car) {
+                var carHtml = `
+                <div class="wrapper">
+                    <div class="box">
+                        <img src="${car.product_image}" alt="${car.product_name}">
+                        <div class="content">
+                            <h3>${car.product_name}</h3>
+                            <div class="price"> <span>price: </span>$${car.product_price} </div>
+                            <button class="btn checkout-btn">Check the car out</button>
+                            <p>
+                                <span class="fas fa-circle"></span> ${car.product_description}
+                                <span class="fas fa-circle"></span> ${car.product_hp}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                `;
+                carsList.append(carHtml);
+            });
+
+            // Event listener for button click
+            $('.checkout-btn').click(function() {
+                // Navigate to order.html
+                window.location.href = 'order.html';
+            });
+        }
+    });
+</script>
 
 
 <!-- vehicle section ends -->
