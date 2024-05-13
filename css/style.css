@@ -81,7 +81,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:3rem 9%;
+    padding:1.5rem 9%;
 }
 
 .header .logo{
