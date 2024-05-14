@@ -19,5 +19,9 @@ class Config {
         return 'carmarketplace';
     }
 
+    public static function JWT_SECRET(){
+        return 'ezcb9s8UcF';
+    }
+
 }
 ?>
